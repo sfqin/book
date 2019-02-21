@@ -71,4 +71,39 @@
     SELECT * FROM student
   </select>
 
+  <select id="getUserById" resultType="com.csu.software.model.Student">
+    SELECT * FROM student where id = #{id,jdbcType=INTEGER}
+  </select>
+
+ <!-- <select id="getUserByNameAndAge" resultType="com.csu.software.model.Student">
+    select * from student
+    <where>
+      <if test="name != null">
+        and name like CONCAT('%',#{name},'%')
+      </if>
+      <if test="age1 != null">
+        and age &gt; #{age1,jdbcType=INTEGER}
+      </if>
+      <if test="age2 != null">
+        and age &lt; #{age2,jdbcType=INTEGER}
+      </if>
+   </where>
+  </select>-->
+
+
+  <select id="getUserByNameAndAge" resultType="com.csu.software.model.Student">
+    select * from student
+    <where>
+      <if test="arg0 != null">
+        and name like CONCAT('%',#{arg0},'%')
+      </if>
+      <if test="arg1 != null">
+        and arg1 &gt; #{arg1,jdbcType=INTEGER}
+      </if>
+      <if test="arg2 != null">
+        and arg2 &lt; #{arg2,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
+
 </mapper>
