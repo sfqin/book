@@ -1,5 +1,6 @@
 
 
+
 ALTER TABLE student ADD COLUMN class_id INT(11) NOT NULL DEFAULT 1 COMMENT '班级id';
 
 
