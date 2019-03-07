@@ -1,13 +1,12 @@
 package com.csu.software.controller;
 
+import com.csu.software.controller.vo.UserReq;
 import com.csu.software.model.Student;
+import com.csu.software.model.User;
 import com.csu.software.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -44,5 +43,23 @@ public class UserController {
 
         List<Student> nameAgeStudent = userService.getUserByNameAndAge(name, age1, age2);
         return nameAgeStudent;
+    }
+
+    @RequestMapping(value = "register" , method = RequestMethod.POST)
+    public @ResponseBody  String register(@RequestBody UserReq user){
+
+        String userAccount = user.getUserAccount();
+        String password = user.getPassword();
+        Byte role = user.getRole();
+        String username = user.getUserName();
+        String helloWord = user.getHelloWord();
+
+        boolean result = userService.register(userAccount,password,role,username,helloWord);
+        if(result){
+            return  "注册成功";
+        }
+        else{
+            return "注册失败，请重新注册";
+        }
     }
 }
