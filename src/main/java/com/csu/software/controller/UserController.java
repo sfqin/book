@@ -53,7 +53,7 @@ public class UserController {
         Byte role = user.getRole();
         String username = user.getUserName();
         String helloWord = user.getHelloWord();
-//d
+
         boolean result = userService.register(userAccount,password,role,username,helloWord);
         if(result){
             return  "注册成功";

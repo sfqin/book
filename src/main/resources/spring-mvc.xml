@@ -12,7 +12,17 @@
 
 
     <!--开启springMVC的注解功能-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven >
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
 
     <!-- 自动扫描该包，配置Controller，Service Repository 等注解的扫描路径 -->
