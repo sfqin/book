@@ -30,7 +30,7 @@ public interface StudentMapper {
 
     List<Student> getUserByNameAndAge(Map param)
     */
-   //boolean register(String user_account,String password,int role,String username,String hello_word);
+    //boolean register(String user_account,String password,int role,String username,String hello_word);
 
 
 }

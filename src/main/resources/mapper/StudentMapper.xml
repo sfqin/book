@@ -10,12 +10,12 @@
     id, name, age
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from student
     where id = #{id,jdbcType=INTEGER}
   </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from student
     where id = #{id,jdbcType=INTEGER}
   </delete>
@@ -75,20 +75,20 @@
     SELECT * FROM student where id = #{id,jdbcType=INTEGER}
   </select>
 
- <!-- <select id="getUserByNameAndAge" resultType="com.csu.software.model.Student">
-    select * from student
-    <where>
-      <if test="name != null">
-        and name like CONCAT('%',#{name},'%')
-      </if>
-      <if test="age1 != null">
-        and age &gt; #{age1,jdbcType=INTEGER}
-      </if>
-      <if test="age2 != null">
-        and age &lt; #{age2,jdbcType=INTEGER}
-      </if>
-   </where>
-  </select>-->
+  <!-- <select id="getUserByNameAndAge" resultType="com.csu.software.model.Student">
+     select * from student
+     <where>
+       <if test="name != null">
+         and name like CONCAT('%',#{name},'%')
+       </if>
+       <if test="age1 != null">
+         and age &gt; #{age1,jdbcType=INTEGER}
+       </if>
+       <if test="age2 != null">
+         and age &lt; #{age2,jdbcType=INTEGER}
+       </if>
+    </where>
+   </select>-->
 
 
   <select id="getUserByNameAndAge" resultType="com.csu.software.model.Student">

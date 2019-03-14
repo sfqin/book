@@ -2,10 +2,8 @@ package com.csu.software.controller;
 
 import com.csu.software.controller.vo.UserReq;
 import com.csu.software.model.Student;
-import com.csu.software.model.User;
 import com.csu.software.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
