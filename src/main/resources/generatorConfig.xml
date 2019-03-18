@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
     <classPathEntry location="C:\Users\Lyndee\.m2\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar"/>
-
+    <!--<classPathEntry location="E:\work\apache-maven-3.3.9\repo\mysql\mysql-connector-java\5.1.40\mysql-connector-java-5.1.40.jar"/>-->
     <context id="UserDB" targetRuntime="MyBatis3" defaultModelType="flat">
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>

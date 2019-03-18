@@ -48,4 +48,15 @@ public class UserReq {
     public void setHelloWord(String helloWord) {
         this.helloWord = helloWord;
     }
+
+    @Override
+    public String toString() {
+        return "UserReq{" +
+                "userAccount='" + userAccount + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", userName='" + userName + '\'' +
+                ", helloWord='" + helloWord + '\'' +
+                '}';
+    }
 }
