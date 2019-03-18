@@ -98,10 +98,10 @@
         and name like CONCAT('%',#{arg0},'%')
       </if>
       <if test="arg1 != null">
-        and arg1 &gt; #{arg1,jdbcType=INTEGER}
+        and age &gt; #{arg1,jdbcType=INTEGER}
       </if>
       <if test="arg2 != null">
-        and arg2 &lt; #{arg2,jdbcType=INTEGER}
+        and age &lt; #{arg2,jdbcType=INTEGER}
       </if>
     </where>
   </select>
