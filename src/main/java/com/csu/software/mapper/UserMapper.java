@@ -22,5 +22,5 @@ public interface UserMapper {
                  @Param("username") String username,
                  @Param("helloWord") String helloWord);
 
-    int login(@Param("userAccount") String userAccount,@Param("password") String password);
+    User login(@Param("userAccount") String userAccount,@Param("password") String password);
 }

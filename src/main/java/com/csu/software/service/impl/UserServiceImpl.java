@@ -50,7 +50,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public User login(String userAccount, String passwd) {
+        User login = userMapper.login(userAccount, passwd);
 
+        return login;
+    }
 
 
 }

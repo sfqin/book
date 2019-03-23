@@ -1,23 +1,30 @@
 package com.csu.software.controller;
 
+import com.csu.software.controller.vo.BaseResult.BaseResult;
 import com.csu.software.controller.vo.UserReq;
 import com.csu.software.model.Student;
+import com.csu.software.model.User;
 import com.csu.software.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
 
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private HttpServletRequest request;
 
 
     @RequestMapping("all")
@@ -60,4 +67,37 @@ public class UserController {
             return "注册失败，请重新注册";
         }
     }
+
+    @PostMapping("login")
+    public BaseResult login(@RequestBody UserReq loginUser){
+        BaseResult baseResult = new BaseResult();
+        String userAccount = loginUser.getUserAccount();
+        String password = loginUser.getPassword();
+        if(StringUtils.isEmpty(userAccount) || StringUtils.isEmpty(password)){
+            baseResult.setCode(599999999);
+            baseResult.setMessage("账号或者密码不能为空");
+            return baseResult;
+        }
+        User login = userService.login(userAccount, password);
+        if(login != null){
+            baseResult.setCode(0);
+            baseResult.setMessage("success");
+            request.getSession().setAttribute("userInfo",login);
+
+        }else {
+            baseResult.setCode(499999999);
+            baseResult.setMessage("账号或者密码错误");
+        }
+        return baseResult;
+    }
+
+    @PostMapping("/logout")
+    public BaseResult logout(){
+        request.getSession().invalidate();
+        BaseResult baseResult = new BaseResult();
+        baseResult.setCode(0);
+        baseResult.setMessage("退出成功");
+        return baseResult;
+    }
+
 }

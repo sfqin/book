@@ -139,6 +139,13 @@
       <version>1.2.17</version>
     </dependency>
 
+    <!--servlet 中 HttpSession HttpRequest HttpResponse jar包-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+    </dependency>
+
   </dependencies>
 
   <!--build 是maven的编译，打包，发布模块-->

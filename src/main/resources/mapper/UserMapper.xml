@@ -108,7 +108,7 @@
 
   </insert>
 
-  <select id="login" >
+  <select id="login" resultType="com.csu.software.model.User">
     select * from user_info
     <where>
       user_account = #{userAccount}
